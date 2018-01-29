@@ -18,7 +18,7 @@ Here is an overview of the steps to take to install and configure the extension.
 
 **1.  Get the extension**
 
-To install the extension, clone the extension into your workspace and add the marketing extension to your extensions.properties file. Then run the extension tool on your workspace to enable the extension and build with maven. 
+To install the extension, download the zip file and unpack it into the extensions folder of your workspace. The  add the marketing extension to your extensions.properties file. Then run the extension tool on your workspace to enable the extension and build with maven. 
 
 **2. Configure the connection to the marketing system**
 
