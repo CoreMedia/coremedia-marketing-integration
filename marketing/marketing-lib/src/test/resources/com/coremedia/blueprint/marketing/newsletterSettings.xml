@@ -1,0 +1,25 @@
+<Struct xmlns="http://www.coremedia.com/2008/struct">
+<StructListProperty Name="newsletters">
+  <Struct>
+    <StringProperty Name="newsletterId">ibm</StringProperty>
+    <StringProperty Name="newsletterTheme">Newsletter</StringProperty>
+    <StringProperty Name="marketingConnectionId">ibm1</StringProperty>
+    <StringProperty Name="mailFromName">CoreMedia Marketing Newsletter</StringProperty>
+    <StringProperty Name="mailFromAddress">info@coremedia.com</StringProperty>
+    <StringProperty Name="mailReplyTo">info@coremedia.com</StringProperty>
+    <StringProperty Name="deepLinkTemplate">https://pilot.silverpop.com/ux/#/composer/{0}</StringProperty>
+    <StringProperty Name="liveCaeUrl">http://helios.livecontext.coremedia.com/blueprint/servlet</StringProperty>
+    <StringProperty Name="folderPath">/</StringProperty>
+  </Struct>
+  <Struct>
+    <StringProperty Name="newsletterId">sfmc</StringProperty>
+    <StringProperty Name="newsletterTheme">Newsletter</StringProperty>
+    <StringProperty Name="marketingConnectionId">sfmc1</StringProperty>
+    <StringProperty Name="mailFromName">CoreMedia Marketing Newsletter</StringProperty>
+    <StringProperty Name="mailFromAddress">info@coremedia.com</StringProperty>
+    <StringProperty Name="mailReplyTo">info@coremedia.com</StringProperty>
+    <StringProperty Name="deepLinkTemplate">deepLinkTemplate</StringProperty>
+    <StringProperty Name="liveCaeUrl">http://helios.livecontext.coremedia.com/blueprint/servlet</StringProperty>
+  </Struct>
+</StructListProperty>
+</Struct>

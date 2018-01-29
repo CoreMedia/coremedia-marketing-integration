@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<marketing:PublishMailingTemplateActionBase
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:marketing="com.coremedia.blueprint.marketing.*">
+  <fx:Script><![CDATA[
+    import com.coremedia.ui.data.ValueExpression;
+
+    private var config:PublishMailingTemplateAction;
+
+    public native function PublishMailingTemplateAction(config:PublishMailingTemplateAction = null);
+
+    [Bindable]
+    public var bindTo:ValueExpression;
+
+    [Bindable]
+    public var newsletterValueExpression:ValueExpression;
+
+    [Bindable]
+    public var newsletterId:String;
+    ]]></fx:Script>
+
+</marketing:PublishMailingTemplateActionBase>

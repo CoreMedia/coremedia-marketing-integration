@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+  <import resource="classpath:/com/coremedia/blueprint/base/settings/impl/bpbase-settings-services.xml"/>
+  <import resource="classpath:com/coremedia/cap/common/uapi-services.xml"/>
+  <import resource="classpath:/com/coremedia/cap/multisite/multisite-services.xml"/>
+  <import resource="classpath:META-INF/coremedia/component-marketing-lib.xml"/>
+  <import resource="classpath:/com/coremedia/blueprint/base/links/bpbase-links-services.xml"/>
+
+  <bean id="marketing-abstractMarketingResource" abstract="true" class="com.coremedia.blueprint.studio.marketing.AbstractMarketingResource">
+    <property name="marketing" ref="marketing" />
+  </bean>
+
+  <bean id="marketing-newsletterResource" class="com.coremedia.blueprint.studio.marketing.NewsletterResource" scope="prototype">
+    <property name="contentRepository" ref="contentRepository"/>
+    <property name="newsletterContextProvider" ref="newsletterContextProvider" />
+    <property name="marketingContextProvider" ref="marketingContextProvider" />
+    <property name="marketing" ref="marketing" />
+    <property name="contentLinkBuilder" ref="contentLinkBuilder" />
+  </bean>
+
+  <bean id="marketing-marketingsResource" class="com.coremedia.blueprint.studio.marketing.MarketingsResource" scope="prototype" parent="marketing-abstractMarketingResource">
+    <property name="sitesService" ref="sitesService" />
+    <property name="marketingConnectionsInitializer" ref="marketingConnectionsInitializer" />
+  </bean>
+
+  <bean id="marketing-marketingResource" class="com.coremedia.blueprint.studio.marketing.MarketingResource" scope="prototype" parent="marketing-abstractMarketingResource">
+    <property name="contextProvider" ref="marketingContextProvider" />
+  </bean>
+
+</beans>

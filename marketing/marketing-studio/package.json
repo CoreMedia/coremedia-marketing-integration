@@ -1,0 +1,8 @@
+{
+  "studioPlugins": [
+    {
+      "mainClass": "com.coremedia.blueprint.marketing.MarketingStudioPlugin",
+      "name": "Marketing Plugin"
+    }
+  ]
+}

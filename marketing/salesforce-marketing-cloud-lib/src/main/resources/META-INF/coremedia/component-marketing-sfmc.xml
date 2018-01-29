@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <import resource="classpath:com/coremedia/cap/common/uapi-services.xml"/>
+
+  <bean id="sfmcNewsletterService" class="com.coremedia.blueprint.marketing.sfmc.api.SFMCNewsletterServiceImpl" />
+
+  <bean id="marketing:sfmc" class="com.coremedia.blueprint.marketing.MarketingConnection" scope="prototype">
+    <property name="newsletterService" ref="sfmcNewsletterService"/>
+  </bean>
+
+</beans>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<newsletter:NewsletterFormBase
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns="exml:ext.config"
+        xmlns:editor="exml:com.coremedia.cms.editor.sdk.config"
+        xmlns:ui="exml:com.coremedia.ui.config"
+        xmlns:newsletter="com.coremedia.blueprint.marketing.*"
+        itemId="{config.newsletterId}"
+        title="{resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'documentForm')}">
+
+  <fx:Metadata>
+    [ResourceBundle('com.coremedia.icons.CoreIcons')]
+  </fx:Metadata>
+
+  <fx:Script><![CDATA[
+    import com.coremedia.blueprint.marketing.beans.NewsletterImpl;
+    import com.coremedia.blueprint.marketing.beans.NewsletterPropertyNames;
+    import com.coremedia.ui.data.ValueExpressionFactory;
+    import com.coremedia.ui.skins.ButtonSkin;
+    import com.coremedia.ui.skins.ContainerSkin;
+
+    public static const xtype:String = "com.coremedia.blueprint.marketing.config.newsletterForm";
+    public static const FORM_ITEM_ID:String = "formItemId";
+    public static const INVALID_FORM_ITEM_ID:String = "invalidFormItemId";
+
+    private var config:NewsletterForm;
+
+    public native function NewsletterForm(config:NewsletterForm = null);
+    ]]></fx:Script>
+
+  <newsletter:items>
+    <ui:SwitchingContainer activeItemValueExpression="{getActiveItemExpression(config)}">
+      <ui:items>
+        <DisplayField itemId="{INVALID_FORM_ITEM_ID}">
+          <plugins>
+            <ui:BindPropertyPlugin componentProperty="value" bindTo="{getTextExpression(config, resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'newletter_form_disabled'))}" />
+          </plugins>
+        </DisplayField>
+        <Container itemId="{FORM_ITEM_ID}">
+          <items>
+            <DisplayField
+                    fieldLabel="{resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'fromName_text')}"
+                    labelSeparator=":" labelAlign="left">
+              <plugins>
+                <ui:BindPropertyPlugin componentProperty="value"
+                                       bindTo="{ValueExpressionFactory.createFromValue(NewsletterImpl.create(config.newsletterId)).extendBy(NewsletterPropertyNames.MAIL_FROM_NAME)}"
+                                       ifUndefined=""/>
+              </plugins>
+            </DisplayField>
+            <DisplayField
+                    fieldLabel="{resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'fromAddress_text')}"
+                    labelSeparator=":" labelAlign="left">
+              <plugins>
+                <ui:BindPropertyPlugin componentProperty="value"
+                                       bindTo="{ValueExpressionFactory.createFromValue(NewsletterImpl.create(config.newsletterId)).extendBy(NewsletterPropertyNames.MAIL_FROM_ADDRESS)}"
+                                       ifUndefined=""/>
+              </plugins>
+            </DisplayField>
+            <DisplayField
+                    fieldLabel="{resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'replyTo_text')}"
+                    labelSeparator=":" labelAlign="left">
+              <plugins>
+                <ui:BindPropertyPlugin componentProperty="value"
+                                       bindTo="{getNewsletterValueExpression(config).extendBy(NewsletterPropertyNames.MAIL_REPLY_TO_ADDRESS)}"
+                                       ifUndefined=""/>
+              </plugins>
+            </DisplayField>
+            <DisplayField
+                    fieldLabel="{resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'mailingId')}"
+                    labelSeparator=":" labelAlign="left">
+              <plugins>
+                <ui:BindPropertyPlugin componentProperty="value"
+                                       bindTo="{config.bindTo.extendBy('properties', 'localSettings', config.newsletterId + '-' + NewsletterPropertyNames.TEMPLATE_ID)}"
+                                       ifUndefined=""/>
+              </plugins>
+            </DisplayField>
+            <DisplayField
+                    fieldLabel="{resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'lastPublished')}"
+                    labelSeparator=":" labelAlign="left">
+              <plugins>
+                <ui:BindPropertyPlugin componentProperty="value"
+                                       bindTo="{config.bindTo.extendBy('properties', 'localSettings', config.newsletterId + '-' + NewsletterPropertyNames.LAST_MODIFIED)}"
+                                       transformer="{transformDate}"
+                                       ifUndefined="--"/>
+              </plugins>
+            </DisplayField>
+            <Container layout="hbox" ui="{ContainerSkin.GRID_100.getSkin()}">
+              <items>
+                <Button iconCls="{resourceManager.getString('com.coremedia.icons.CoreIcons', 'publish')}"
+                        iconAlign="left"
+                        ui="{ButtonSkin.INLINE.getSkin()}"
+                        flex="1">
+                  <plugins>
+                    <ui:BindPropertyPlugin componentProperty="text" bindTo="{getTextExpression(config, resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'pushToMarketingSystem'))}" />
+                  </plugins>
+                  <baseAction>
+                    <newsletter:PublishMailingTemplateAction contentValueExpression="{config.bindTo}"
+                                                             newsletterId="{config.newsletterId}"
+                                                             newsletterValueExpression="{getNewsletterValueExpression(config)}"/>
+                  </baseAction>
+                </Button>
+                <editor:FormSpacerElement width="10"/>
+                <Button iconCls="{resourceManager.getString('com.coremedia.icons.CoreIcons', 'open_in_browser')}"
+                        iconAlign="left"
+                        ui="{ButtonSkin.INLINE.getSkin()}"
+                        handler="{openInMarketingSystem}"
+                        flex="1">
+                  <plugins>
+                    <ui:BindPropertyPlugin componentProperty="text" bindTo="{getTextExpression(config, resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'openInMarketingSystem'))}" />
+                    <ui:BindPropertyPlugin componentProperty="disabled"
+                                           bindTo="{getOpenInMarketingSystemExpression(config)}"
+                                           transformer="{function(value:String):Boolean {return value === null;}}"/>
+                    <ui:BindVisibilityPlugin
+                            bindTo="{getNewsletterValueExpression(config).extendBy(NewsletterPropertyNames.DEEP_LINK_TEMPLATE)}" />
+                  </plugins>
+                </Button>
+                <Container flex="1">
+                  <plugins>
+                    <ui:BindVisibilityPlugin
+                            bindTo="{getNewsletterValueExpression(config).extendBy(NewsletterPropertyNames.DEEP_LINK_TEMPLATE)}"
+                            transformer="{transformSpacerVisibility}"/>
+                  </plugins>
+                </Container>
+              </items>
+            </Container>
+          </items>
+          <layout>
+            <layout_VBox align="stretch" />
+          </layout>
+        </Container>
+
+      </ui:items>
+    </ui:SwitchingContainer>
+
+  </newsletter:items>
+
+</newsletter:NewsletterFormBase>

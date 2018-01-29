@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<componentPackage>
+  <component class="com.coremedia.blueprint.marketing.MarketingStudioPlugin"/>
+  <component class="com.coremedia.blueprint.marketing.MarketingForm"/>
+  <component class="com.coremedia.blueprint.marketing.NewsletterForm"/>
+  <component class="com.coremedia.blueprint.marketing.OpenMailTemplateButton"/>
+  <component class="com.coremedia.blueprint.marketing.PublishMailingTemplateAction"/>
+</componentPackage>

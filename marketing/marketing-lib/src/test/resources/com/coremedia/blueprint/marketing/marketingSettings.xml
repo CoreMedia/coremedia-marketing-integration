@@ -1,0 +1,27 @@
+<Struct xmlns="http://www.coremedia.com/2008/struct">
+  <StructListProperty Name="marketingConnections">
+    <Struct>
+      <StringProperty Name="connectionId">ibm1</StringProperty>
+      <StringProperty Name="connectionType">ibm</StringProperty>
+      <StringProperty Name="contactId">11831005</StringProperty>
+      <StringProperty Name="vendorName">IBM Silverpop</StringProperty>
+      <StringProperty Name="vendorVersion">1</StringProperty>
+      <StringProperty Name="vendorUrl">url</StringProperty>
+      <BooleanProperty Name="enabled">true</BooleanProperty>
+      <StringProperty Name="url">http://pilot.silverpop.com</StringProperty>
+      <StringProperty Name="clientId">clientId</StringProperty>
+      <StringProperty Name="clientSecret">clientSecret</StringProperty>
+      <StringProperty Name="refreshToken">refreshToken</StringProperty>
+    </Struct>
+    <Struct>
+      <StringProperty Name="connectionId">sfmc1</StringProperty>
+      <StringProperty Name="connectionType">sfmc</StringProperty>
+      <StringProperty Name="vendorName">Salesforce Marketing Cloud</StringProperty>
+      <StringProperty Name="vendorVersion"></StringProperty>
+      <StringProperty Name="vendorUrl"></StringProperty>
+      <BooleanProperty Name="enabled">true</BooleanProperty>
+      <StringProperty Name="clientId">clientId</StringProperty>
+      <StringProperty Name="clientSecret">clientSecret</StringProperty>
+    </Struct>
+  </StructListProperty>
+</Struct>

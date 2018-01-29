@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contentRepository xmlns="http://www.coremedia.com/2010/content"
+                   xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="classpath:com/coremedia/blueprint/base/testing/blueprint-doctypes-xmlrepo.xml"/>
+
+  <content>
+    <folder id="1" name="">
+      <folder id="11" name="Settings">
+        <folder id="111" name="Options">
+
+          <folder id="1111" name="Settings">
+            <document id="2" type="CMSettings" name="MarketingSettings">
+              <version number="1">
+                <markupProperty name="settings" url="marketingSettings.xml" grammar="coremedia-struct-2008"/>
+              </version>
+            </document>
+            <document id="4" type="CMSettings" name="NewsletterSettings">
+              <version number="1">
+                <markupProperty name="settings" url="newsletterSettings.xml" grammar="coremedia-struct-2008"/>
+              </version>
+            </document>
+          </folder>
+        </folder>
+      </folder>
+    </folder>
+  </content>
+  <rules>
+    <rule resourceId="1" group="0" doctype="Folder_">
+      <right value="ALL"/>
+    </rule>
+    <rule resourceId="1" group="0" doctype="Document_">
+      <right value="ALL"/>
+    </rule>
+  </rules>
+</contentRepository>
