@@ -8,6 +8,8 @@
 # Coremedia Marketing Integration
 
 This CoreMedia extension will allow you to integrate just about any marketing tool or platform into your CoreMedia system. 
+**We have provided out-of-the-box integration implementations for IBM Watson, Salesforce Marketing Cloud and Marketo.**
+
 Employ the beauty and power of the Studio interface to craft your newsletter using templates. Drag and drop content into your newsletter and perfect the look of it with our immediate preview update.  Then send it with the push of a button to your marketing tool. Reaching your customers via email was never easier. 
 
 This extension provides a generic interface which can be used to implement integrations for practically any marketing tool with an API that enables newsletter customization. We've also included the integration implementation for marketing systems such as Salesforce Marketing Cloud, Marketo or IBM Watson Campaign Automation which can be used out-of-the box. 
