@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<themeDefinition modelVersion="1">
+
+  <name>newsletter</name>
+  <description>
+    The Newsletter Theme provides a modern, appealing, highly visual newsletter theme.
+  </description>
+  <thumbnail>img/theme-preview.png</thumbnail>
+
+  <styleSheets>
+    <css>css/newsletter.css</css>
+  </styleSheets>
+
+  <templateSets>
+    <templateSet>templates/newsletter-templates.jar</templateSet>
+    <templateSet>templates/bricks-templates.jar</templateSet>
+  </templateSets>
+
+  <resourceBundles>
+    <resourceBundle>l10n/Newsletter_en.properties</resourceBundle>
+  </resourceBundles>
+
+</themeDefinition>

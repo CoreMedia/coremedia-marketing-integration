@@ -1,0 +1,30 @@
+{
+  "name": "@coremedia/newsletter-theme",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "start": "cm monitor",
+    "theme-importer": "cm theme-importer"
+  },
+  "dependencies": {
+    "@coremedia/brick-generic-templates": "^1.0.0",
+    "@coremedia/brick-preview": "^1.0.0",
+    "@coremedia/brick-responsive-images": "^1.0.0",
+    "@coremedia/brick-cta": "^1.0.0",
+    "@coremedia/cm-cli": "^2.0.0",
+    "@coremedia/theme-utils": "^3.0.0",
+    "webpack": "3.10.0",
+    "foundation-emails": "2.2.1"
+  },
+  "coremedia": {
+    "name": "newsletter",
+    "type": "theme"
+  },
+  "browserslist": [
+    "last 1 Chrome version",
+    "last 1 Firefox version",
+    "last 1 Edge version",
+    "Explorer >= 11"
+  ]
+}
