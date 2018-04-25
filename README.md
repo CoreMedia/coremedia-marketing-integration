@@ -1,6 +1,6 @@
 ![Status: Active](https://documentation.coremedia.com/badges/badge_status_active.png "Status: Active")
-![For CoreMedia LiveContext](https://documentation.coremedia.com/badges/badge_coremedia_cms.png "For CoreMedia LiveContext")
-![Tested: 3.1707.1](https://documentation.coremedia.com/badges/badge_tested_coremedia_9-1710-1.png "Tested: 9.1710.1")
+![For CoreMedia CMS](https://documentation.coremedia.com/badges/badge_coremedia_cms.png "For CoreMedia CMS")
+![Tested: 3.1801.2](https://documentation.coremedia.com/badges/badge_tested_coremedia_9-1801-2.png "Tested: 3.1801.2")
 
 ![CoreMedia Labs Logo](https://documentation.coremedia.com/badges/banner_coremedia_labs_wide.png "CoreMedia Labs Logo Title Text")
 
