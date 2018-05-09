@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<newsletter:MarketingFormBase
+<newsletter2:MarketingFormBase
         xmlns:fx="http://ns.adobe.com/mxml/2009"
         xmlns:exml="http://www.jangaroo.net/exml/0.8"
         xmlns="exml:ext.config"
-        xmlns:newsletter="com.coremedia.blueprint.marketing.*"
+        xmlns:newsletter2="com.coremedia.blueprint.marketing.newsletter.*"
         title="{resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'documentForm')}"
         autoHide="true">
   <fx:Metadata>
@@ -11,6 +11,7 @@
   </fx:Metadata>
 
   <fx:Script><![CDATA[
+    import com.coremedia.blueprint.marketing.*;
 
     public static const xtype:String = "com.coremedia.blueprint.marketing.config.marketingForm";
 
@@ -19,10 +20,10 @@
     public native function MarketingForm(config:MarketingForm = null);
     ]]></fx:Script>
 
-  <newsletter:items>
-    <newsletter:NewsletterForm newsletterId="ibm" />
-    <newsletter:NewsletterForm newsletterId="sfmc" />
-    <newsletter:NewsletterForm newsletterId="marketo" />
-  </newsletter:items>
+  <newsletter2:items>
+    <newsletter2:NewsletterForm newsletterId="ibm"/>
+    <newsletter2:NewsletterForm newsletterId="sfmc"/>
+    <newsletter2:NewsletterForm newsletterId="marketo"/>
+  </newsletter2:items>
 
-</newsletter:MarketingFormBase>
+</newsletter2:MarketingFormBase>

@@ -1,4 +1,4 @@
-package com.coremedia.blueprint.studio.marketing;
+package com.coremedia.blueprint.studio.marketing.newsletter;
 
 import com.coremedia.blueprint.base.links.ContentLinkBuilder;
 import com.coremedia.blueprint.marketing.MarketingActionResponse;
@@ -8,8 +8,7 @@ import com.coremedia.blueprint.marketing.impl.Marketing;
 import com.coremedia.blueprint.marketing.impl.MarketingContextProvider;
 import com.coremedia.blueprint.marketing.impl.newsletter.NewsletterContextProvider;
 import com.coremedia.blueprint.marketing.newsletter.NewsletterContext;
-import com.coremedia.blueprint.studio.marketing.model.MarketingModel;
-import com.coremedia.blueprint.studio.marketing.representation.NewsletterRepresentation;
+import com.coremedia.blueprint.studio.marketing.MarketingModel;
 import com.coremedia.cap.common.IdHelper;
 import com.coremedia.cap.content.Content;
 import com.coremedia.cap.content.ContentRepository;
@@ -46,7 +45,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 
-import static com.coremedia.blueprint.studio.marketing.NewsletterResource.NEWSLETTER_ID;
+import static com.coremedia.blueprint.studio.marketing.newsletter.NewsletterResource.NEWSLETTER_ID;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Path("marketing/newsletter/{" + NEWSLETTER_ID + ":[^/]+}")

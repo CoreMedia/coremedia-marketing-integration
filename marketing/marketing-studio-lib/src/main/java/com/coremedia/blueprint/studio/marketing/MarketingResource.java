@@ -3,8 +3,6 @@ package com.coremedia.blueprint.studio.marketing;
 import com.coremedia.blueprint.marketing.MarketingConnection;
 import com.coremedia.blueprint.marketing.MarketingContext;
 import com.coremedia.blueprint.marketing.impl.MarketingContextProvider;
-import com.coremedia.blueprint.studio.marketing.model.MarketingModel;
-import com.coremedia.blueprint.studio.marketing.representation.MarketingRepresentation;
 import com.coremedia.rest.linking.EntityResource;
 import org.springframework.beans.factory.annotation.Required;
 

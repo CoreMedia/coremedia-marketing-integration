@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.coremedia.blueprint</groupId>
+    <groupId>com.coremedia.blueprint.marketing</groupId>
     <artifactId>marketing</artifactId>
-    <version>17-BP-SNAPSHOT</version>
+    <version>1804.1-1</version>
   </parent>
 
   <artifactId>marketing-lib</artifactId>
 
   <dependencies>
     <dependency>
-      <groupId>${project.groupId}</groupId>
+      <groupId>com.coremedia.blueprint.marketing</groupId>
       <artifactId>marketing-api</artifactId>
-      <version>${project.version}</version>
+      <version>1804.1-1</version>
     </dependency>
     <dependency>
       <groupId>com.coremedia.cms</groupId>
@@ -55,6 +53,7 @@
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -104,4 +103,18 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+<distributionManagement>
+    <repository>
+      <id>contributions-releases</id>
+      <url>https://repository.coremedia.com/nexus/content/repositories/contributions-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>localfs</id>
+      <url>file://C:\workspace\cm-master-release\blueprint\modules\extensions\marketing\target</url>
+    </snapshotRepository>
+    <site>
+      <id>localsite</id>
+      <url>file://C:\workspace\cm-master-release\blueprint\modules\extensions\marketing\target\site-deploy\modules\extensions\marketing</url>
+    </site>
+  </distributionManagement>
 </project>

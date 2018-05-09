@@ -1,4 +1,4 @@
-package com.coremedia.blueprint.studio.marketing.model;
+package com.coremedia.blueprint.studio.marketing;
 
 import com.coremedia.blueprint.marketing.MarketingConnection;
 import org.codehaus.jackson.map.annotate.JsonSerialize;

@@ -1,4 +1,4 @@
-package com.coremedia.blueprint.studio.marketing.representation;
+package com.coremedia.blueprint.studio.marketing;
 
 public class AbstractMarketingResourceRepresentation {
 

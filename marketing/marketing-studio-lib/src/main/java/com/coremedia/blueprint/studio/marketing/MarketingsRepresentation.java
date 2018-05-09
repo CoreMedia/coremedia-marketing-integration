@@ -1,6 +1,4 @@
-package com.coremedia.blueprint.studio.marketing.representation;
-
-import com.coremedia.blueprint.studio.marketing.model.MarketingModel;
+package com.coremedia.blueprint.studio.marketing;
 
 import java.util.List;
 

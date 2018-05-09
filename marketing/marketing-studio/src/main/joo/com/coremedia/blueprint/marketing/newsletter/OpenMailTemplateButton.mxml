@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<marketing:OpenMailTemplateButtonBase
+<newsletter:OpenMailTemplateButtonBase
         xmlns:fx="http://ns.adobe.com/mxml/2009"
         xmlns:exml="http://www.jangaroo.net/exml/0.8"
         xmlns="exml:ext.config"
         xmlns:ui="exml:com.coremedia.ui.config"
-        xmlns:marketing="com.coremedia.blueprint.marketing.*"
+        xmlns:newsletter="com.coremedia.blueprint.marketing.newsletter.*"
         iconCls="{ResourceManager.getInstance().getString('com.coremedia.icons.CoreIcons', 'type_media')}"
         text=" | Preview Template"
         iconAlign="left"
         itemId="openMailTemplateButton"
         handler="{openPreview}">
   <fx:Script><![CDATA[
+    import com.coremedia.blueprint.marketing.*;
     import com.coremedia.ui.data.ValueExpression;
 
     import mx.resources.ResourceManager;
@@ -25,10 +26,10 @@
     public var bindTo:ValueExpression;
     ]]></fx:Script>
 
-  <marketing:plugins>
+  <newsletter:plugins>
     <ui:BindPropertyPlugin componentProperty="disabled"
                            bindTo="{templateExistsExpression()}"
                            ifUndefined="true"/>
-  </marketing:plugins>
+  </newsletter:plugins>
 
-</marketing:OpenMailTemplateButtonBase>
+</newsletter:OpenMailTemplateButtonBase>

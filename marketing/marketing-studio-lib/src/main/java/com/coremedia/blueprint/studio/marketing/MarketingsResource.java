@@ -2,8 +2,6 @@ package com.coremedia.blueprint.studio.marketing;
 
 import com.coremedia.blueprint.marketing.MarketingConnections;
 import com.coremedia.blueprint.marketing.impl.MarketingConnectionsInitializer;
-import com.coremedia.blueprint.studio.marketing.model.MarketingModels;
-import com.coremedia.blueprint.studio.marketing.representation.MarketingsRepresentation;
 import com.coremedia.cap.multisite.Site;
 import com.coremedia.cap.multisite.SitesService;
 import com.coremedia.rest.linking.EntityResource;

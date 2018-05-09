@@ -1,4 +1,5 @@
-package com.coremedia.blueprint.marketing {
+package com.coremedia.blueprint.marketing.newsletter {
+import com.coremedia.blueprint.marketing.*;
 
 import com.coremedia.blueprint.marketing.beans.MarketingImpl;
 import com.coremedia.blueprint.marketing.beans.NewsletterImpl;

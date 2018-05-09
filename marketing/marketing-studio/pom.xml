@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.coremedia.blueprint</groupId>
+    <groupId>com.coremedia.blueprint.marketing</groupId>
     <artifactId>marketing</artifactId>
-    <version>17-BP-SNAPSHOT</version>
+    <version>1804.1-1</version>
   </parent>
 
   <artifactId>marketing-studio</artifactId>
@@ -18,13 +18,6 @@
   <dependencies>
 
     <!-- PROJECT dependencies -->
-
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>blueprint-forms</artifactId>
-      <version>${project.version}</version>
-      <type>swc</type>
-    </dependency>
 
     <dependency>
       <groupId>com.coremedia.ui.toolkit</groupId>
@@ -76,4 +69,18 @@
 
     </plugins>
   </build>
+<distributionManagement>
+    <repository>
+      <id>contributions-releases</id>
+      <url>https://repository.coremedia.com/nexus/content/repositories/contributions-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>localfs</id>
+      <url>file://C:\workspace\cm-master-release\blueprint\modules\extensions\marketing\target</url>
+    </snapshotRepository>
+    <site>
+      <id>localsite</id>
+      <url>file://C:\workspace\cm-master-release\blueprint\modules\extensions\marketing\target\site-deploy\modules\extensions\marketing</url>
+    </site>
+  </distributionManagement>
 </project>

@@ -1,7 +1,7 @@
-package com.coremedia.blueprint.studio.marketing.representation;
+package com.coremedia.blueprint.studio.marketing.newsletter;
 
 import com.coremedia.blueprint.marketing.newsletter.NewsletterContext;
-import com.coremedia.blueprint.studio.marketing.model.MarketingModel;
+import com.coremedia.blueprint.studio.marketing.MarketingModel;
 
 import java.net.URI;
 import java.util.Map;

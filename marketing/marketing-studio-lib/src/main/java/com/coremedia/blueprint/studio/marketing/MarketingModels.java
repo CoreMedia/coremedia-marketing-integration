@@ -1,4 +1,4 @@
-package com.coremedia.blueprint.studio.marketing.model;
+package com.coremedia.blueprint.studio.marketing;
 
 import com.coremedia.blueprint.marketing.MarketingConnection;
 import com.coremedia.blueprint.marketing.MarketingConnections;
@@ -15,7 +15,8 @@ public class MarketingModels {
 
   public MarketingModels(MarketingConnections connectionsForSite) {
     for (MarketingConnection c : connectionsForSite.getMarketingConnections()) {
-      getMarketings().add(new MarketingModel(c));
+      MarketingModel marketingModel = new MarketingModel(c);
+      getMarketings().add(marketingModel);
     }
   }
 

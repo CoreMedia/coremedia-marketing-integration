@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<marketing:PublishMailingTemplateActionBase
+<newsletter:PublishMailingTemplateActionBase
         xmlns:fx="http://ns.adobe.com/mxml/2009"
-        xmlns:marketing="com.coremedia.blueprint.marketing.*">
+        xmlns:newsletter="com.coremedia.blueprint.marketing.newsletter.*">
   <fx:Script><![CDATA[
     import com.coremedia.ui.data.ValueExpression;
 
@@ -19,4 +19,4 @@
     public var newsletterId:String;
     ]]></fx:Script>
 
-</marketing:PublishMailingTemplateActionBase>
+</newsletter:PublishMailingTemplateActionBase>

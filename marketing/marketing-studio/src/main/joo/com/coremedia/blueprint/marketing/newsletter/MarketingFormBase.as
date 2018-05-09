@@ -1,4 +1,5 @@
-package com.coremedia.blueprint.marketing {
+package com.coremedia.blueprint.marketing.newsletter {
+import com.coremedia.blueprint.marketing.*;
 
 import com.coremedia.cms.editor.sdk.premular.DocumentForm;
 

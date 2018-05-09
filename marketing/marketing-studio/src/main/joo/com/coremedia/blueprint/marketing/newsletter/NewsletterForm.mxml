@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<newsletter:NewsletterFormBase
+<newsletter2:NewsletterFormBase
         xmlns:fx="http://ns.adobe.com/mxml/2009"
         xmlns="exml:ext.config"
         xmlns:editor="exml:com.coremedia.cms.editor.sdk.config"
         xmlns:ui="exml:com.coremedia.ui.config"
-        xmlns:newsletter="com.coremedia.blueprint.marketing.*"
+        xmlns:newsletter2="com.coremedia.blueprint.marketing.newsletter.*"
         itemId="{config.newsletterId}"
         title="{resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'documentForm')}">
 
@@ -13,6 +13,7 @@
   </fx:Metadata>
 
   <fx:Script><![CDATA[
+    import com.coremedia.blueprint.marketing.*;
     import com.coremedia.blueprint.marketing.beans.NewsletterImpl;
     import com.coremedia.blueprint.marketing.beans.NewsletterPropertyNames;
     import com.coremedia.ui.data.ValueExpressionFactory;
@@ -28,12 +29,13 @@
     public native function NewsletterForm(config:NewsletterForm = null);
     ]]></fx:Script>
 
-  <newsletter:items>
+  <newsletter2:items>
     <ui:SwitchingContainer activeItemValueExpression="{getActiveItemExpression(config)}">
       <ui:items>
         <DisplayField itemId="{INVALID_FORM_ITEM_ID}">
           <plugins>
-            <ui:BindPropertyPlugin componentProperty="value" bindTo="{getTextExpression(config, resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'newletter_form_disabled'))}" />
+            <ui:BindPropertyPlugin componentProperty="value"
+                                   bindTo="{getTextExpression(config, resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'newletter_form_disabled'))}"/>
           </plugins>
         </DisplayField>
         <Container itemId="{FORM_ITEM_ID}">
@@ -91,12 +93,13 @@
                         ui="{ButtonSkin.INLINE.getSkin()}"
                         flex="1">
                   <plugins>
-                    <ui:BindPropertyPlugin componentProperty="text" bindTo="{getTextExpression(config, resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'pushToMarketingSystem'))}" />
+                    <ui:BindPropertyPlugin componentProperty="text"
+                                           bindTo="{getTextExpression(config, resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'pushToMarketingSystem'))}"/>
                   </plugins>
                   <baseAction>
-                    <newsletter:PublishMailingTemplateAction contentValueExpression="{config.bindTo}"
-                                                             newsletterId="{config.newsletterId}"
-                                                             newsletterValueExpression="{getNewsletterValueExpression(config)}"/>
+                    <newsletter2:PublishMailingTemplateAction contentValueExpression="{config.bindTo}"
+                                                              newsletterId="{config.newsletterId}"
+                                                              newsletterValueExpression="{getNewsletterValueExpression(config)}"/>
                   </baseAction>
                 </Button>
                 <editor:FormSpacerElement width="10"/>
@@ -106,12 +109,13 @@
                         handler="{openInMarketingSystem}"
                         flex="1">
                   <plugins>
-                    <ui:BindPropertyPlugin componentProperty="text" bindTo="{getTextExpression(config, resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'openInMarketingSystem'))}" />
+                    <ui:BindPropertyPlugin componentProperty="text"
+                                           bindTo="{getTextExpression(config, resourceManager.getString('com.coremedia.blueprint.marketing.MarketingStudioPlugin', 'openInMarketingSystem'))}"/>
                     <ui:BindPropertyPlugin componentProperty="disabled"
                                            bindTo="{getOpenInMarketingSystemExpression(config)}"
                                            transformer="{function(value:String):Boolean {return value === null;}}"/>
                     <ui:BindVisibilityPlugin
-                            bindTo="{getNewsletterValueExpression(config).extendBy(NewsletterPropertyNames.DEEP_LINK_TEMPLATE)}" />
+                            bindTo="{getNewsletterValueExpression(config).extendBy(NewsletterPropertyNames.DEEP_LINK_TEMPLATE)}"/>
                   </plugins>
                 </Button>
                 <Container flex="1">
@@ -125,13 +129,13 @@
             </Container>
           </items>
           <layout>
-            <layout_VBox align="stretch" />
+            <layout_VBox align="stretch"/>
           </layout>
         </Container>
 
       </ui:items>
     </ui:SwitchingContainer>
 
-  </newsletter:items>
+  </newsletter2:items>
 
-</newsletter:NewsletterFormBase>
+</newsletter2:NewsletterFormBase>

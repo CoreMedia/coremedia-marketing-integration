@@ -1,4 +1,4 @@
-package com.coremedia.blueprint.marketing {
+package com.coremedia.blueprint.marketing.newsletter {
 
 import com.coremedia.ui.data.ValueExpression;
 import com.coremedia.ui.data.ValueExpressionFactory;

@@ -15,7 +15,7 @@
     <property name="marketing" ref="marketing" />
   </bean>
 
-  <bean id="marketing-newsletterResource" class="com.coremedia.blueprint.studio.marketing.NewsletterResource" scope="prototype">
+  <bean id="marketing-newsletterResource" class="com.coremedia.blueprint.studio.marketing.newsletter.NewsletterResource" scope="prototype">
     <property name="contentRepository" ref="contentRepository"/>
     <property name="newsletterContextProvider" ref="newsletterContextProvider" />
     <property name="marketingContextProvider" ref="marketingContextProvider" />
