@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.coremedia.blueprint</groupId>
     <artifactId>extensions</artifactId>
-    <version>17-BP-SNAPSHOT</version>
+    <version>1-SNAPSHOT</version>
   </parent>
 
   <artifactId>marketing</artifactId>

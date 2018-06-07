@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <import resource="classpath:/com/coremedia/cap/common/uapi-services.xml"/>
+  <import resource="classpath:/com/coremedia/cap/multisite/multisite-services.xml"/>
+  <import resource="classpath:/com/coremedia/blueprint/base/settings/impl/bpbase-settings-services.xml"/>
+
+  <bean id="marketingConnectionsInitializer" class="com.coremedia.blueprint.marketing.impl.MarketingConnectionsInitializer">
+    <property name="marketing" ref="marketing"/>
+    <property name="marketingContextProvider" ref="marketingContextProvider"/>
+  </bean>
+
+  <bean id="marketing" class="com.coremedia.blueprint.marketing.impl.Marketing"/>
+
+  <bean id="marketingContextProvider" class="com.coremedia.blueprint.marketing.impl.MarketingContextProvider">
+    <property name="contentRepository" ref="contentRepository"/>
+    <property name="cache" ref="cache" />
+    <property name="globalConfigPath" value="${marketing.configpath.global:/Settings/Options/Settings}"/>
+    <property name="siteConfigPath" value="${marketing.configpath.site:/Options/Settings}"/>
+    <property name="settingsService" ref="settingsService"/>
+    <property name="sitesService" ref="sitesService"/>
+  </bean>
+
+  <bean id="newsletterContextProvider" class="com.coremedia.blueprint.marketing.impl.newsletter.NewsletterContextProvider">
+    <property name="contentRepository" ref="contentRepository"/>
+    <property name="cache" ref="cache" />
+    <property name="globalConfigPath" value="${marketing.configpath.global:/Settings/Options/Settings}"/>
+    <property name="siteConfigPath" value="${marketing.configpath.site:/Options/Settings}"/>
+    <property name="settingsService" ref="settingsService"/>
+    <property name="sitesService" ref="sitesService"/>
+  </bean>
+</beans>

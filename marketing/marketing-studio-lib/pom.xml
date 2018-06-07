@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.coremedia.blueprint.marketing</groupId>
     <artifactId>marketing</artifactId>
-    <version>1804.1-1</version>
+    <version>1804.2-1</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -19,29 +19,29 @@
     <dependency>
       <groupId>com.coremedia.blueprint.marketing</groupId>
       <artifactId>marketing-api</artifactId>
-      <version>1804.1-1</version>
+      <version>1804.2-1</version>
     </dependency>
     <dependency>
       <groupId>com.coremedia.blueprint.marketing</groupId>
       <artifactId>marketing-lib</artifactId>
-      <version>1804.1-1</version>
+      <version>1804.2-1</version>
     </dependency>
     <dependency>
       <groupId>com.coremedia.blueprint.marketing</groupId>
       <artifactId>ibm-digital-marketing-lib</artifactId>
-      <version>1804.1-1</version>
+      <version>1804.2-1</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>com.coremedia.blueprint.marketing</groupId>
       <artifactId>marketo-marketing-lib</artifactId>
-      <version>1804.1-1</version>
+      <version>1804.2-1</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>com.coremedia.blueprint.marketing</groupId>
       <artifactId>salesforce-marketing-cloud-lib</artifactId>
-      <version>1804.1-1</version>
+      <version>1804.2-1</version>
       <scope>runtime</scope>
       <exclusions>
         <exclusion>
@@ -65,7 +65,7 @@
     <dependency>
       <groupId>com.coremedia.blueprint.marketing</groupId>
       <artifactId>marketing-api</artifactId>
-      <version>1804.1-1</version>
+      <version>1804.2-1</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
