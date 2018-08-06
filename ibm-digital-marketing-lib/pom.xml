@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.coremedia.blueprint.marketing</groupId>
+    <artifactId>marketing</artifactId>
+    <version>1807.1-1</version>
+  </parent>
+
+  <artifactId>ibm-digital-marketing-lib</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.coremedia.blueprint.marketing</groupId>
+      <artifactId>marketing-api</artifactId>
+      <version>1807.1-1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+<distributionManagement>
+    <repository>
+      <id>contributions-releases</id>
+      <url>https://repository.coremedia.com/nexus/content/repositories/contributions-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>localfs</id>
+      <url>file://C:\workspace\cm-master-release\blueprint\modules\extensions\marketing\target</url>
+    </snapshotRepository>
+    <site>
+      <id>localsite</id>
+      <url>file://C:\workspace\cm-master-release\blueprint\modules\extensions\marketing\target\site-deploy\modules\extensions\marketing</url>
+    </site>
+  </distributionManagement>
+</project>

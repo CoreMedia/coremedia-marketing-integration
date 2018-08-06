@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <import resource="classpath:com/coremedia/cap/common/uapi-services.xml"/>
+
+  <bean id="marketoClient" class="com.coremedia.blueprint.marketing.marketo.api.MarketoClient" scope="prototype">
+    <property name="tokenUrl" value="/identity/oauth/token?grant_type=client_credentials&amp;client_id={0}&amp;client_secret={1}" />
+    <property name="findFolderUrl" value="/rest/asset/v1/folder/byName.json?name={0}&amp;access_token={1}" />
+    <property name="createEmailTemplateUrl" value="/rest/asset/v1/emailTemplates.json?access_token={0}" />
+    <property name="updateEmailTemplateUrl" value="/rest/asset/v1/emailTemplate/{0}/content.json?access_token={1}" />
+    <property name="getEmailTemplateUrl" value="/rest/asset/v1/emailTemplate/byName.json?name={0}" />
+  </bean>
+
+  <bean id="marketoNewsletterService" class="com.coremedia.blueprint.marketing.marketo.api.MarketoNewsletterServiceImpl">
+    <property name="client" ref="marketoClient" />
+  </bean>
+
+  <bean id="marketing:marketo" class="com.coremedia.blueprint.marketing.MarketingConnection" scope="prototype">
+    <property name="newsletterService" ref="marketoNewsletterService"/>
+  </bean>
+
+</beans>

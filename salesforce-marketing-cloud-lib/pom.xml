@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.coremedia.blueprint.marketing</groupId>
+    <artifactId>marketing</artifactId>
+    <version>1807.1-1</version>
+  </parent>
+
+  <artifactId>salesforce-marketing-cloud-lib</artifactId>
+
+  <description>Salesforce Marketing Cloud connector lib</description>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>com.coremedia.blueprint.marketing</groupId>
+      <artifactId>marketing-api</artifactId>
+      <version>1807.1-1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+
+    <!-- SFMC -->
+    <dependency>
+      <groupId>com.github.salesforce-marketingcloud</groupId>
+      <artifactId>fuelsdk</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-servlet_3.0_spec</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.woodstox</groupId>
+          <artifactId>wstx-asl</artifactId>
+        </exclusion>
+        <!-- conflicts with CoreMedia's bouncycastle:bcprov-jdk15:1.45, see cms-thirdparty-bom -->
+        <exclusion>
+          <groupId>org.bouncycastle</groupId>
+          <artifactId>bcprov-jdk15on</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.codehaus.woodstox</groupId>
+          <artifactId>woodstox-core-asl</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.santuario</groupId>
+          <artifactId>xmlsec</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.woodstox</groupId>
+      <artifactId>woodstox-core-asl</artifactId>
+    </dependency>
+  </dependencies>
+
+  <!-- SFMC third-party libs -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.github.salesforce-marketingcloud</groupId>
+        <artifactId>fuelsdk</artifactId>
+        <version>1.2.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.woodstox</groupId>
+        <artifactId>stax2-api</artifactId>
+        <version>3.1.4</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.woodstox</groupId>
+        <artifactId>woodstox-core-asl</artifactId>
+        <version>4.4.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.santuario</groupId>
+        <artifactId>xmlsec</artifactId>
+        <version>2.0.5</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <configuration>
+          <usedDependencies>
+            <!-- SFMC fuelsdk workaround for dependency management conflicts -->
+            <usedDependency>org.codehaus.woodstox:woodstox-core-asl</usedDependency>
+          </usedDependencies>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+<distributionManagement>
+    <repository>
+      <id>contributions-releases</id>
+      <url>https://repository.coremedia.com/nexus/content/repositories/contributions-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>localfs</id>
+      <url>file://C:\workspace\cm-master-release\blueprint\modules\extensions\marketing\target</url>
+    </snapshotRepository>
+    <site>
+      <id>localsite</id>
+      <url>file://C:\workspace\cm-master-release\blueprint\modules\extensions\marketing\target\site-deploy\modules\extensions\marketing</url>
+    </site>
+  </distributionManagement>
+</project>
