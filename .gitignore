@@ -4,12 +4,5 @@
 *.iws
 .idea/
 
-marketing/ibm-digital-marketing-lib/target/
-marketing/salesforce-marketing-cloud-lib/target/
-marketing/marketo-marketing-lib/target/
-marketing/marketing-api/target/
-marketing/marketing-cae/target/
-marketing/marketing-lib/target/
-marketing/marketing-studio/target/
-marketing/marketing-studio-lib/target/
+target/
 
