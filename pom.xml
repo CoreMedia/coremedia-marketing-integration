@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.coremedia.blueprint</groupId>
+    <artifactId>extensions</artifactId>
+    <version>1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>marketing</artifactId>
+  <packaging>pom</packaging>
+
+  <properties>
+    <workspace.configuration.dir>../../../../workspace-configuration</workspace.configuration.dir>
+  </properties>
+
+  <modules>
+    <module>marketing-studio-lib</module>
+    <module>marketing-studio</module>
+    <module>marketing-lib</module>
+    <module>ibm-digital-marketing-lib</module>
+    <module>marketo-marketing-lib</module>
+    <module>salesforce-marketing-cloud-lib</module>
+    <module>marketing-api</module>
+    <module>marketing-cae</module>
+  </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.coremedia.blueprint.marketing</groupId>
     <artifactId>marketing</artifactId>
-    <version>1810.1-1</version>
+    <version>1-SNAPSHOT</version>
   </parent>
 
   <artifactId>marketing-lib</artifactId>
@@ -14,7 +14,7 @@
     <dependency>
       <groupId>com.coremedia.blueprint.marketing</groupId>
       <artifactId>marketing-api</artifactId>
-      <version>1810.1-1</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>com.coremedia.cms</groupId>
