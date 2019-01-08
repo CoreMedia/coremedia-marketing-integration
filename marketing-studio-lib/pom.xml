@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.coremedia.blueprint.marketing</groupId>
+    <groupId>com.coremedia.blueprint</groupId>
     <artifactId>marketing</artifactId>
     <version>1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
@@ -17,29 +17,29 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.coremedia.blueprint.marketing</groupId>
+      <groupId>com.coremedia.blueprint</groupId>
       <artifactId>marketing-api</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.coremedia.blueprint.marketing</groupId>
+      <groupId>com.coremedia.blueprint</groupId>
       <artifactId>marketing-lib</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.coremedia.blueprint.marketing</groupId>
+      <groupId>com.coremedia.blueprint</groupId>
       <artifactId>ibm-digital-marketing-lib</artifactId>
       <version>${project.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>com.coremedia.blueprint.marketing</groupId>
+      <groupId>com.coremedia.blueprint</groupId>
       <artifactId>marketo-marketing-lib</artifactId>
       <version>${project.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>com.coremedia.blueprint.marketing</groupId>
+      <groupId>com.coremedia.blueprint</groupId>
       <artifactId>salesforce-marketing-cloud-lib</artifactId>
       <version>${project.version}</version>
       <scope>runtime</scope>
@@ -63,7 +63,7 @@
       <artifactId>coremedia-rest-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.coremedia.blueprint.marketing</groupId>
+      <groupId>com.coremedia.blueprint</groupId>
       <artifactId>marketing-api</artifactId>
       <version>${project.version}</version>
     </dependency>

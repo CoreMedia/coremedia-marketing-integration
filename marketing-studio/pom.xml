@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.coremedia.blueprint.marketing</groupId>
+    <groupId>com.coremedia.blueprint</groupId>
     <artifactId>marketing</artifactId>
     <version>1-SNAPSHOT</version>
   </parent>
@@ -56,7 +56,7 @@
         <configuration>
           <production>
             <requiredClasses>
-              <entry>com.coremedia.blueprint.marketing.MarketingStudioPlugin</entry>
+              <entry>com.coremedia.blueprint.MarketingStudioPlugin</entry>
             </requiredClasses>
           </production>
           <namespaces>
