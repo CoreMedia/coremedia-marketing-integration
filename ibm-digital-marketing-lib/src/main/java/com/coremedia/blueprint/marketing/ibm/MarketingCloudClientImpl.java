@@ -147,7 +147,7 @@ public class MarketingCloudClientImpl implements MarketingCloudClient {
 
 
   private void getAccessToken() {
-    AccessTokenRetriever tokenRetriever = new AccessTokenRetriever(apiUrl);
+    AccessTokenRetriever tokenRetriever = new AccessTokenRetriever(apiUrl + "/oauth/token");
     accessToken = tokenRetriever.retrieveToken(clientId, clientSecret, refreshToken);
     LOG.info("Retrieved accessToken: " + accessToken);
   }
