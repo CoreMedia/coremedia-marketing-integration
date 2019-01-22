@@ -8,6 +8,7 @@
     <version>1-SNAPSHOT</version>
   </parent>
 
+  <groupId>com.coremedia.blueprint.marketing</groupId>
   <artifactId>marketing</artifactId>
   <packaging>pom</packaging>
 
