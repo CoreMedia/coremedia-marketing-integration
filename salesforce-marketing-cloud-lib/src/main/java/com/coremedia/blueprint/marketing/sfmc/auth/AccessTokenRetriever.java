@@ -1,14 +1,13 @@
-package com.coremedia.blueprint.marketing.ibm;
+package com.coremedia.blueprint.marketing.sfmc.auth;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -16,52 +15,50 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class AccessTokenRetriever {
   private static final Logger LOG = LoggerFactory.getLogger(AccessTokenRetriever.class);
 
-  private static final String PARAM_CLIENT_ID = "client_id";
-  private static final String PARAM_CLIENT_SECRET = "client_secret";
-  private static final String PARAM_REFRESH_TOKEN = "refresh_token";
-  private static final String PARAM_GRANT_TYPE = "grant_type";
-  private static final String GRANT_TYPE = "refresh_token";
+  private static final String PARAM_CLIENT_ID = "clientId";
+  private static final String PARAM_CLIENT_SECRET = "clientSecret";
 
   private String url;
   private HttpClient httpClient;
   private String responseText;
+  private AccessToken lastToken;
 
   public AccessTokenRetriever(String url) {
     this.url = url;
     httpClient = HttpClientBuilder.create().build();
   }
 
-  public String retrieveToken(String clientId, String clientSecret, String refreshToken) {
+  public String retrieveToken(String clientId, String clientSecret) {
     try {
-      HttpPost post = createPost(clientId, clientSecret, refreshToken);
+      if(lastToken != null && lastToken.isValid()) {
+        return lastToken.getToken();
+      }
+
+      HttpPost post = createPost(clientId, clientSecret);
       HttpResponse execute = httpClient.execute(post);
       responseText = getResponseText(execute);
-      return getTokenFromResponse();
+      lastToken = getTokenFromResponse();
+      return lastToken.getToken();
     } catch (Exception e) {
       LOG.error("Error retrieving token from ", e);
       throw new RuntimeException(e);
     }
   }
 
-  private HttpPost createPost(String clientId, String clientSecret, String refreshToken) throws UnsupportedEncodingException {
+  private HttpPost createPost(String clientId, String clientSecret) {
     HttpPost httpPost = new HttpPost(url);
 
-    ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
-    postParameters.add(new BasicNameValuePair(PARAM_CLIENT_ID, clientId));
-    postParameters.add(new BasicNameValuePair(PARAM_CLIENT_SECRET, clientSecret));
-    postParameters.add(new BasicNameValuePair(PARAM_REFRESH_TOKEN, refreshToken));
-    postParameters.add(new BasicNameValuePair(PARAM_GRANT_TYPE, GRANT_TYPE));
-
-    UrlEncodedFormEntity urlEncodedFormEntity = new UrlEncodedFormEntity(postParameters);
-    httpPost.setEntity(urlEncodedFormEntity);
+    String json = "{\n" +
+            "    \"clientId\": \"" + clientId + "\",\n" +
+            "    \"clientSecret\": \"" + clientSecret + "\"\n" +
+            "}";
+    httpPost.setEntity(new ByteArrayEntity(json.getBytes(), ContentType.APPLICATION_JSON));
 
     int connectionTimeout = 10 * 1000;
     RequestConfig requestConfig = RequestConfig.custom()
@@ -87,9 +84,13 @@ public class AccessTokenRetriever {
     return result;
   }
 
-  private String getTokenFromResponse() {
+  private AccessToken getTokenFromResponse() {
     JSONTokener tokener = new JSONTokener(responseText);
     JSONObject json = new JSONObject(tokener);
-    return json.getString("access_token");
+    String token = json.getString("accessToken");
+    long expires = Long.parseLong(json.getString("expiresIn"));
+    return new AccessToken(token, expires);
   }
+
+
 }
