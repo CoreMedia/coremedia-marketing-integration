@@ -4,7 +4,7 @@
 <#-- @ftlvariable name="sliderMetadata" type="java.lang.String" -->
 <html xmlns="http://www.w3.org/1999/xhtml" <@preview.metadata data=bp.getPageMetadata(self)!""/>>
 
-<#assign studioExtraFilesMetadata=cm.getStudioAdditionalFilesMetadata(bp.setting(self, "studioPreviewCss"), bp.setting(self, "studioPreviewJs"))/>
+<#assign studioExtraFilesMetadata=preview.getStudioAdditionalFilesMetadata(bp.setting(self, "studioPreviewCss"), bp.setting(self, "studioPreviewJs"))/>
 <#assign mailingId=cmpage.context.segment/>
 <#assign content=self.content/>
 <#assign link = cm.getLink(content, {"absolute": true,"mailingId": mailingId})>
